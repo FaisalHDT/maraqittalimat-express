@@ -4,7 +4,7 @@ const getAllBerita = async (req, res) => {
     try {
         const [data] = await BeritaModels.getAllBerita();
 
-        res.json({
+        res.status(200).json({
             message: 'Get All Berita Succes',
             data : data
         });

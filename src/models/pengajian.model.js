@@ -7,14 +7,14 @@ const getAllPengajian = () => {
 }
 
 const createNewPengajian = (body) => {
-    const sql = `INSERT INTO pengajian (lokasi, waktu) 
-                VALUES ('${body.lokasi}', '${body.waktu}')`;
+    const sql = `INSERT INTO pengajian (nama_ustad, lokasi_acara, waktu, keterangan)
+                VALUES ('${body.nama_ustad}', '${body.lokasi_acara}', '${body.waktu}', '${body.keterangan}')`;
 
     return dbpool.query(sql);
 }
 
 const updatePengajian = (id, body) => {
-    const sql = `UPDATE pengajian SET lokasi = '${body.lokasi}', waktu = '${body.waktu}' WHERE idpengajian = ${id}`;
+    const sql = `UPDATE pengajian SET nama_ustad = '${body.nama_ustad}', lokasi_acara = '${body.lokasi_acara}', waktu = '${body.waktu}', keterangan = '${body.keterangan}' WHERE idpengajian = ${id}`;
 
     return dbpool.query(sql);
 }
