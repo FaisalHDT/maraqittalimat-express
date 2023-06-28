@@ -15,7 +15,22 @@ const getAllPengajian = async (req, res) => {
         
     }
 }
-
+const getPengajianId = async (req, res) => {
+    const {id} = req.params;
+    try {
+        const [data]= await PengajianModel.getPengajianId(id);
+        res.status(200).json({
+            message: 'Get Pengajian Succes',
+            data : data
+        })
+    } catch (error) {
+        res.status(500).json({
+            message: 'Server error',
+            serVerMessage : error
+        })
+        
+    }
+}
 const createNewPengajian = async (req, res) => {
     const {body} = req;
     try {
@@ -73,5 +88,6 @@ module.exports = {
     getAllPengajian,
     createNewPengajian,
     updatePengajian,
-    deletePengajian
+    deletePengajian,
+    getPengajianId
 }
