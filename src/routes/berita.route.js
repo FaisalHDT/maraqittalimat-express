@@ -6,6 +6,7 @@ const router = express.Router();
 //get data
 
 router.get('/', BeritaController.getAllBerita);
+router.get('/:id', BeritaController.showBerita);
 
 router.post('/', BeritaController.createNewBerita);
 

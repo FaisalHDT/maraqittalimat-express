@@ -6,6 +6,12 @@ const getAllBerita = () => {
     return dbpool.query(sql);
 }
 
+const showBerita = (id) => {
+    const sql = `SELECT * FROM berita WHERE idberita = ${id}`;
+
+    return dbpool.query(sql);
+}
+
 const createNewBerita = (body) => {
     const sql = `INSERT INTO berita (judul, konten, gambar) 
                 VALUES ('${body.judul}', '${body.konten}', '${body.gambar}')`;
@@ -31,5 +37,6 @@ module.exports = {
     getAllBerita,
     createNewBerita,
     updateBerita,
-    deleteBerita
+    deleteBerita,
+    showBerita
 }

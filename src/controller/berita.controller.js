@@ -15,7 +15,22 @@ const getAllBerita = async (req, res) => {
         })
     }
 }
+const showBerita = async (req, res) => {
+    const {id} = req.params;
+    try {
+        const [data] = await BeritaModels.showBerita(id);
 
+        res.status(200).json({
+            message: 'Get All Berita Succes',
+            data : data
+        });
+    } catch (error) {
+        res.status(500).json({
+            message: 'Server error',
+            serVerMessage : error
+        })
+    }
+}
 const createNewBerita = async (req, res) => {
     const {body} = req;
     try {
@@ -75,6 +90,7 @@ module.exports = {
     getAllBerita,
     createNewBerita,
     updateBerita,
-    deleteBerita
+    deleteBerita,
+    showBerita
 
 }
